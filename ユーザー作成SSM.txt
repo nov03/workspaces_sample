@@ -1,0 +1,22 @@
+aws ssm send-command \
+    --document-name "AWS-RunPowerShellScript" \
+    --targets "Key=instanceIds,Values=i-0d29246b7180ec9e9" \
+    --parameters 'commands=["$Username = \"hoge.fuga\"",
+                           "$Firstname = \"hoge\"",
+                           "$Lastname = \"fuga\"",
+                           "$UserPrincipalName = \"hoge.fuga@example.com\"",
+                           "$Email = \"hoge.fuga@example.com\"",
+                           "$Password = ConvertTo-SecureString \"P@ssw0rd2024!\" -AsPlainText -Force",
+                           "$AdminPassword = ConvertTo-SecureString \"SuperSecretPassword123!\" -AsPlainText -Force",
+                           "$Credential = New-Object System.Management.Automation.PSCredential (\"example\\Admin\", $AdminPassword)",
+                           "New-ADUser -Name \"$Firstname $Lastname\" `",
+                           "    -GivenName $Firstname -Surname $Lastname `",
+                           "    -SamAccountName $Username `",
+                           "    -UserPrincipalName $UserPrincipalName `",
+                           "    -Path \"OU=Users,OU=example,DC=example,DC=com\" `",
+                           "    -AccountPassword $Password `",
+                           "    -PasswordNeverExpires $true -Enabled $true -Credential $Credential `",
+                           "    -EmailAddress $Email",
+                           "Set-ADUser -Identity $Username -EmailAddress $Email -Credential $Credential"]' \
+    --comment "Create user hoge.fuga in Active Directory with email" \
+    --region ap-northeast-1
