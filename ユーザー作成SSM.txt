@@ -1,6 +1,6 @@
 aws ssm send-command \
     --document-name "AWS-RunPowerShellScript" \
-    --targets "Key=instanceIds,Values=i-0d29246b7180ec9e9" \
+    --targets "Key=instanceIds,Values=i-XXXX" \
     --parameters 'commands=["$Username = \"hoge.fuga\"",
                            "$Firstname = \"hoge\"",
                            "$Lastname = \"fuga\"",

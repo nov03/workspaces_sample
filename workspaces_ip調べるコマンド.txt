@@ -1,1 +1,1 @@
-aws workspaces describe-workspaces --directory-id d-9567455700 --user-name nob.ishii --query "Workspaces[0].IpAddress"
+aws workspaces describe-workspaces --directory-id d-XXX --user-name nob.ishii --query "Workspaces[0].IpAddress"
