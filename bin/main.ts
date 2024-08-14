@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { AdtStack } from '../lib/ad-stack';
 import { WorkspacesStack } from '../lib/workspaces-stack';
 import { ApiGatewayAndCodeBuildStack } from '../lib/api-gateway-codebuild-stack';
-import { Ec2Stack } from '../lib/ec2-stack';  // ここでEC2Stackをインポート
+import { Ec2Stack } from '../lib/ec2-stack';
 
 const app = new cdk.App();
 
